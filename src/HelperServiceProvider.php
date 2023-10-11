@@ -1,5 +1,7 @@
 <?php
 
+namespace risingsun\Helper;
+
 use Illuminate\Support\ServiceProvider;
 
 class HelperServiceProvider extends ServiceProvider
@@ -11,6 +13,9 @@ class HelperServiceProvider extends ServiceProvider
 
     public function register()
     {
-        require_once __DIR__ . '/helpers.php';
+        $file = __DIR__ . '/helpers.php';
+        if (file_exists($file)) {
+            require_once $file;
+        }
     }
 }
